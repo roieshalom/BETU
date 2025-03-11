@@ -1,10 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import FlashcardApp from "./FlashcardApp"; // ✅ Make sure FlashcardApp.jsx exists
+import "./index.css"; // ✅ Ensure index.css exists for styling
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("app")).render(
+  <React.StrictMode>
+    <FlashcardApp />
+  </React.StrictMode>
+);
