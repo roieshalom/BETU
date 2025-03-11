@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-
-// Load questions from JSON
-const fetchQuestions = async () => {
-    const response = await fetch("questions.json");
-    return response.json();
-};
+import { questions } from "./questions.js"; // Import the questions file
 
 const FlashcardApp = () => {
-    const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
-
-    useEffect(() => {
-        fetchQuestions().then(setQuestions);
-    }, []);
 
     if (questions.length === 0) {
         return <h1>Lade Fragen...</h1>;
