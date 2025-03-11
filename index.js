@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { questions } from "./questions.js"; // ✅ Importing questions
+import { questions } from "./questions.js"; // ✅ Make sure this file exists!
 
-console.log("Questions loaded:", questions); // ✅ Debugging log
+console.log("✅ Questions loaded:", questions); // Debugging step
 
 const FlashcardApp = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
