@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const questions = [
+    {
+        id: 1,
+        question: "Wie heißt die deutsche Verfassung?",
+        options: ["Volksgesetz", "Bundesgesetz", "Deutsches Gesetz", "Grundgesetz"],
+        correct_answer: "Grundgesetz"
+    },
+    {
+        id: 2,
+        question: "Wahlen in Deutschland sind frei. Was bedeutet das?",
+        options: [
+            "Man darf Geld annehmen, wenn man dafür eine bestimmte Partei wählt.",
+            "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.",
+            "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden.",
+            "Alle wahlberechtigten Personen müssen wählen."
+        ],
+        correct_answer: "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden."
+    }
+];
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isFlipped, setIsFlipped] = useState(false);
 
-export default App
+    if (!questions || questions.length === 0) {
+        return <h1>Keine Fragen gefunden. Bitte überprüfe die Datei.</h1>;
+    }
+
+    const currentQuestion = questions[currentIndex];
+
+    const handleFlip = () => setIsFlipped(!isFlipped);
+    const nextQuestion = () => setCurrentIndex((prev) => (prev + 1) % questions.length);
+    const prevQuestion = () => setCurrentIndex((prev) => (prev - 1 + questions.length) % questions.length);
+    const randomQuestion = () => setCurrentIndex(Math.floor(Math.random() * questions.length));
+
+    return (
+        <div className="container">
+            <h1>Berlin Citizenship Flashcards</h1>
+            <div className="question-count">Fragen: {questions.length}</div>
+
+            <div className={`flashcard ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
+                <div className="front">{currentQuestion.question}</div>
+                <div className="back">{currentQuestion.correct_answer}</div>
+            </div>
+
+            <div className="controls">
+                <button onClick={prevQuestion}>⬅ Zurück</button>
+                <button onClick={randomQuestion}>🔀 Zufällig</button>
+                <button onClick={nextQuestion}>Weiter ➡</button>
+            </div>
+        </div>
+    );
+};
+
+export default App;
