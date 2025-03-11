@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { questions } from "./questions.js"; // Import the questions file
+import { questions } from "./questions.js"; // ✅ Importing questions
+
+console.log("Questions loaded:", questions); // ✅ Debugging log
 
 const FlashcardApp = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
 
-    if (questions.length === 0) {
-        return <h1>Lade Fragen...</h1>;
+    if (!questions || questions.length === 0) {
+        return <h1>Keine Fragen gefunden. Bitte überprüfe die Datei questions.js</h1>;
     }
 
     const currentQuestion = questions[currentIndex];
 
-    // Handlers
     const handleFlip = () => setIsFlipped(!isFlipped);
     const nextQuestion = () => setCurrentIndex((prev) => (prev + 1) % questions.length);
     const prevQuestion = () => setCurrentIndex((prev) => (prev - 1 + questions.length) % questions.length);
