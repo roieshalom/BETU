@@ -1,2 +1,0 @@
-# BETU
-Berlin einbürgerungstest übungsfragen
