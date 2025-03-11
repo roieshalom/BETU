@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { questions } from "./questions.js"; // ✅ Make sure this file exists!
+import { questions } from "./questions.js"; // ✅ Importing questions
 
 console.log("✅ Questions loaded:", questions); // Debugging step
 
