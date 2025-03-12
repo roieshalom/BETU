@@ -3,5 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/BETU/", // ✅ Make sure this matches your repo name
+  base: "/BETU/", // ✅ Ensure this matches your GitHub repo name exactly
 });
+
