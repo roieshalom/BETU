@@ -3,5 +3,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/BETU/" // ✅ Ensure this matches your GitHub repo name EXACTLY
+  base: "/BETU/",
+  server: {
+    port: 5173, // Set a fixed port
+    strictPort: true, // Prevents switching to another port
+  },
 });
