@@ -23,22 +23,34 @@ const questions = [
 
 const App = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isFlipped, setIsFlipped] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [isAnswered, setIsAnswered] = useState(false);
 
     const currentQuestion = questions[currentIndex];
 
-    const handleFlip = () => setIsFlipped(!isFlipped);
+    const handleAnswerClick = (option) => {
+        if (!isAnswered) {
+            setSelectedAnswer(option);
+            setIsAnswered(true);
+        }
+    };
+
     const nextQuestion = () => {
-        setIsFlipped(false);
+        resetState();
         setCurrentIndex((prev) => (prev + 1) % questions.length);
     };
     const prevQuestion = () => {
-        setIsFlipped(false);
+        resetState();
         setCurrentIndex((prev) => (prev - 1 + questions.length) % questions.length);
     };
     const randomQuestion = () => {
-        setIsFlipped(false);
+        resetState();
         setCurrentIndex(Math.floor(Math.random() * questions.length));
+    };
+
+    const resetState = () => {
+        setSelectedAnswer(null);
+        setIsAnswered(false);
     };
 
     return (
@@ -46,9 +58,28 @@ const App = () => {
             <h1>Berlin Citizenship Flashcards</h1>
             <div className="question-count">Fragen: {questions.length}</div>
 
-            <div className={`flashcard ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
-                <div className="front">{currentQuestion.question}</div>
-                <div className="back">{currentQuestion.correct_answer}</div>
+            <div className="flashcard">
+                <div className="question">{currentQuestion.question}</div>
+                <div className="options">
+                    {currentQuestion.options.map((option, index) => (
+                        <button
+                            key={index}
+                            className={`option-button ${
+                                isAnswered
+                                    ? option === currentQuestion.correct_answer
+                                        ? "correct"
+                                        : option === selectedAnswer
+                                        ? "incorrect"
+                                        : ""
+                                    : ""
+                            }`}
+                            onClick={() => handleAnswerClick(option)}
+                            disabled={isAnswered}
+                        >
+                            {option}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <div className="controls">
