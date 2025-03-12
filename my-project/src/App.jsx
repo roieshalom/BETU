@@ -54,35 +54,36 @@ const App = () => {
     };
 
     return (
-        <div className="container">
+        <div className="wrapper">
             <h1 className="page-title">Test Leben in Deutschland Fragenkatalog</h1>
             <div className="question-count">Fragen insgesamt: {questions.length}</div>
-
-            <div className="flashcard">
-                <div className="question-number">Frage {currentIndex + 1}:</div>
-                <div className="question">{currentQuestion.question}</div>
-                <div className="options">
-                    {currentQuestion.options.map((option, index) => (
-                        <button
-                            key={index}
-                            className={`option-button ${
-                                isAnswered
-                                    ? option === currentQuestion.correct_answer
-                                        ? "correct"
-                                        : option === selectedAnswer
-                                        ? "incorrect"
+            
+            <div className="container">
+                <div className="flashcard">
+                    <div className="question">{currentQuestion.question}</div>
+                    <div className="options">
+                        {currentQuestion.options.map((option, index) => (
+                            <button
+                                key={index}
+                                className={`option-button ${
+                                    isAnswered
+                                        ? option === currentQuestion.correct_answer
+                                            ? "correct"
+                                            : option === selectedAnswer
+                                            ? "incorrect"
+                                            : ""
                                         : ""
-                                    : ""
-                            }`}
-                            onClick={() => handleAnswerClick(option)}
-                            disabled={isAnswered}
-                        >
-                            {option}
-                        </button>
-                    ))}
+                                }`}
+                                onClick={() => handleAnswerClick(option)}
+                                disabled={isAnswered}
+                            >
+                                {option}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
-
+            
             <div className="controls">
                 <button onClick={prevQuestion}>⬅ Zurück</button>
                 <button onClick={randomQuestion}>🔀 Zufällig</button>
