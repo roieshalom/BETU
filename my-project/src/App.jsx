@@ -55,10 +55,11 @@ const App = () => {
 
     return (
         <div className="container">
-            <h1>Berlin Citizenship Flashcards</h1>
-            <div className="question-count">Fragen: {questions.length}</div>
+            <h1 className="page-title">Test Leben in Deutschland Fragenkatalog</h1>
+            <div className="question-count">Fragen insgesamt: {questions.length}</div>
 
             <div className="flashcard">
+                <div className="question-number">Frage {currentIndex + 1}:</div>
                 <div className="question">{currentQuestion.question}</div>
                 <div className="options">
                     {currentQuestion.options.map((option, index) => (
