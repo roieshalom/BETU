@@ -57,8 +57,8 @@ const App = () => {
         <div className="wrapper">
             <h1 className="page-title">Leben in Deutschland Fragenkatalog</h1>
             
-            <div className="container">
-                <div className="flashcard">
+            <div className="flashcard-container" style={{ width: "400px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div className="flashcard" style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
                     <div className="question">{currentQuestion.question}</div>
                     <div className="options">
                         {currentQuestion.options.map((option, index) => (
@@ -81,16 +81,18 @@ const App = () => {
                         ))}
                     </div>
                 </div>
-                <div className="question-number">#{currentIndex + 1}</div>
             </div>
             
-            <div className="controls">
+            <div className="controls" style={{ marginTop: "10px" }}>
                 <button onClick={prevQuestion}>⬅ Zurück</button>
                 <button onClick={randomQuestion}>Zufällig</button>
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
 
-            <div className="question-count" style={{ color: "lightgray", marginTop: "20px" }}>Fragen insgesamt: {questions.length}</div>
+            <div className="question-info" style={{ display: "flex", justifyContent: "space-between", width: "400px", marginTop: "5px", textAlign: "center" }}>
+                <div className="question-number" style={{ textAlign: "left" }}>#{currentIndex + 1}</div>
+                <div className="question-count" style={{ color: "lightgray", textAlign: "right" }}>{questions.length} insgesamt</div>
+            </div>
         </div>
     );
 };
