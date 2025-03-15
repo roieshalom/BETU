@@ -80,8 +80,8 @@ const App = () => {
                             </button>
                         ))}
                     </div>
-                    <div className="question-number">#{currentIndex + 1}</div>
                 </div>
+                <div className="question-number">#{currentIndex + 1}</div>
             </div>
             
             <div className="controls">
