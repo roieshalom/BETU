@@ -55,8 +55,7 @@ const App = () => {
 
     return (
         <div className="wrapper">
-            <h1 className="page-title">Test Leben in Deutschland Fragenkatalog</h1>
-            <div className="question-count">Fragen insgesamt: {questions.length}</div>
+            <h1 className="page-title">Leben in Deutschland Fragenkatalog</h1>
             
             <div className="container">
                 <div className="flashcard">
@@ -81,14 +80,17 @@ const App = () => {
                             </button>
                         ))}
                     </div>
+                    <div className="question-number">#{currentIndex + 1}</div>
                 </div>
             </div>
             
             <div className="controls">
                 <button onClick={prevQuestion}>⬅ Zurück</button>
-                <button onClick={randomQuestion}>🔀 Zufällig</button>
+                <button onClick={randomQuestion}>Zufällig</button>
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
+
+            <div className="question-count">Fragen insgesamt: {questions.length}</div>
         </div>
     );
 };
