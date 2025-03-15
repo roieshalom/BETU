@@ -80,7 +80,7 @@ const App = () => {
                             </button>
                         ))}
                     </div>
-                    <div className="question-number" style={{ color: "gray" }}>#{currentIndex + 1}</div>
+                    <div className="question-number">#{currentIndex + 1}</div>
                 </div>
             </div>
             
@@ -90,7 +90,7 @@ const App = () => {
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
 
-            <div className="question-count" style={{ color: "lightgray", marginTop: "10px" }}>Fragen insgesamt: {questions.length}</div>
+            <div className="question-count" style={{ color: "lightgray", marginTop: "20px" }}>Fragen insgesamt: {questions.length}</div>
         </div>
     );
 };
