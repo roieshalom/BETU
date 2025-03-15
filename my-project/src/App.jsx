@@ -89,7 +89,7 @@ const App = () => {
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
 
-            <div className="question-info" style={{ display: "flex", justifyContent: "space-between", width: "400px", marginTop: "5px", textAlign: "center" }}>
+            <div className="q uestion-info" style={{ display: "flex", justifyContent: "space-between", width: "400px", marginTop: "5px", textAlign: "center" }}>
                 <div className="question-number" style={{ textAlign: "left" }}>#{currentIndex + 1}</div>
                 <div className="question-count" style={{ color: "lightgray", textAlign: "right" }}>{questions.length} insgesamt</div>
             </div>
