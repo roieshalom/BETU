@@ -55,10 +55,11 @@ const App = () => {
 
     return (
         <div className="wrapper">
-            <h1 className="page-title">Leben in Deutschland Fragenkatalog</h1>
+            <h1 className="page-title" style={{ marginBottom: "20px" }}>Leben in Deutschland Fragenkatalog</h1>
             
-            <div className="flashcard-container" style={{ width: "400px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div className="flashcard" style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+            <div className="flashcard-container" style={{ width: "400px", height: "350px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
+                <div className="flashcard" style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-start", position: "relative" }}>
+                    <div className="question-number" style={{ position: "absolute", bottom: "10px", right: "10px", fontSize: "14px", color: "gray" }}>#{currentIndex + 1}</div>
                     <div className="question">{currentQuestion.question}</div>
                     <div className="options">
                         {currentQuestion.options.map((option, index) => (
@@ -83,14 +84,13 @@ const App = () => {
                 </div>
             </div>
             
-            <div className="controls" style={{ marginTop: "10px" }}>
+            <div className="controls" style={{ marginTop: "20px" }}>
                 <button onClick={prevQuestion}>⬅ Zurück</button>
                 <button onClick={randomQuestion}>Zufällig</button>
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
 
-            <div className="q uestion-info" style={{ display: "flex", justifyContent: "space-between", width: "400px", marginTop: "5px", textAlign: "center" }}>
-                <div className="question-number" style={{ textAlign: "left" }}>#{currentIndex + 1}</div>
+            <div className="question-info" style={{ display: "flex", justifyContent: "flex-end", width: "400px", textAlign: "center", marginTop: "20px" }}>
                 <div className="question-count" style={{ color: "lightgray", textAlign: "right" }}>{questions.length} insgesamt</div>
             </div>
         </div>
