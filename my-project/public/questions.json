@@ -1,4 +1,3 @@
-# Expanding the JSON file to include all 30 questions
 questions_full = [
     {
         "question_number": 1,
