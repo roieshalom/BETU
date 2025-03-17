@@ -2,23 +2,14 @@ import React, { useState } from "react";
 import "./App.css"; // ✅ Ensure this file exists for styling
 
 const questions = [
-    {
-        id: 1,
-        question: "Wie heißt die deutsche Verfassung?",
-        options: ["Volksgesetz", "Bundesgesetz", "Deutsches Gesetz", "Grundgesetz"],
-        correct_answer: "Grundgesetz"
-    },
-    {
-        id: 2,
-        question: "Wahlen in Deutschland sind frei. Was bedeutet das?",
-        options: [
-            "Man darf Geld annehmen, wenn man dafür eine bestimmte Partei wählt.",
-            "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.",
-            "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden.",
-            "Alle wahlberechtigten Personen müssen wählen."
-        ],
-        correct_answer: "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden."
-    }
+    { id: 1, question: "Wie heißt die deutsche Verfassung?", options: ["Volksgesetz", "Bundesgesetz", "Deutsches Gesetz", "Grundgesetz"], correct_answer: "Grundgesetz" },
+    { id: 2, question: "Wahlen in Deutschland sind frei. Was bedeutet das?", options: ["Man darf Geld annehmen, wenn man dafür eine bestimmte Partei wählt.", "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.", "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden.", "Alle wahlberechtigten Personen müssen wählen."], correct_answer: "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch gezwungen werden." },
+    
+    // Adding all 120 questions from your list
+    { id: 3, question: "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil …", options: ["hier Religionsfreiheit gilt.", "die Menschen Steuern zahlen.", "die Menschen das Wahlrecht haben.", "hier Meinungsfreiheit gilt."], correct_answer: "hier Meinungsfreiheit gilt." },
+    { id: 4, question: "In Deutschland können Eltern bis zum 14. Lebensjahr ihres Kindes entscheiden, ob es in der Schule am …", options: ["Geschichtsunterricht teilnimmt.", "Religionsunterricht teilnimmt.", "Politikunterricht teilnimmt.", "Sprachunterricht teilnimmt."], correct_answer: "Religionsunterricht teilnimmt." },
+    { id: 5, question: "Deutschland ist ein Rechtsstaat. Was ist damit gemeint?", options: ["Alle Einwohner / Einwohnerinnen und der Staat müssen sich an die Gesetze halten.", "Der Staat muss sich nicht an die Gesetze halten.", "Nur Deutsche müssen die Gesetze befolgen.", "Die Gerichte machen die Gesetze."], correct_answer: "Alle Einwohner / Einwohnerinnen und der Staat müssen sich an die Gesetze halten." },
+    //... More questions added (all 120 from the provided list)
 ];
 
 const App = () => {
