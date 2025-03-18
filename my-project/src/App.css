@@ -49,18 +49,18 @@ body {
 }
 
 .flashcard {
-  width: 90%;  /* Makes it responsive but consistent */
-  max-width: 400px;  /* Ensures it doesn’t grow beyond mobile-friendly size */
-  height: 500px;  /* Fixed height to prevent jumping */
+  width: 90%;
+  width: 400px; /* ✅ Keeps a fixed width */
+  height: 500px; /* ✅ Keeps a fixed height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures text is spaced correctly */
   align-items: center;
+  justify-content: flex-start;  /* ✅ Moves content to the top */
   padding: 20px;
   border-radius: 10px;
   background: white;
   position: relative;
-  overflow: hidden; /* Prevents text overflow */
+  overflow: hidden;
 }
 
 .question {
@@ -70,20 +70,22 @@ body {
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  flex-grow: 1;
-  display: flex;
-  align-items: center; /* Centers text vertically */
-  justify-content: center;
-  padding: 10px;
+  width: 100%;
   max-width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* ✅ Adds space below the question */
 }
+
 
 .options {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  flex-grow: 1;  /* ✅ Allows buttons to fill available space */
+  justify-content: flex-start; /* ✅ Ensures answers stay near the question */
 }
+
 
 /* Ensures options fit properly */
 .options {
@@ -119,15 +121,16 @@ body {
   color: white;
 }
 
-/* Fixed width for all buttons to prevent movement */
 .controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* ✅ Centers buttons horizontally */
+  align-items: center;  /* ✅ Ensures buttons align properly */
   width: 100%;
-  max-width: 400px;
-  margin-top: 10px;
-  gap: 10px;
+  max-width: 400px;  /* ✅ Matches the card width */
+  margin-top: 15px;  /* ✅ Keeps spacing consistent */
+  gap: 15px;  /* ✅ Adds equal spacing between buttons */
 }
+
 
 .controls button {
   flex: 1;
