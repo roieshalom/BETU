@@ -33,7 +33,7 @@ body {
 
 /* White card container with fixed size */
 .container {
-  max-width: 400px;
+  width: 400px;
   width: 90%;
   height: 500px; /* Fixed height */
   padding: 20px;
@@ -50,7 +50,7 @@ body {
 
 .flashcard {
   width: 90%;
-  width: 400px; /* ✅ Keeps a fixed width */
+  max-width: 400px; /* ✅ Keeps a fixed width */
   height: 500px; /* ✅ Keeps a fixed height */
   display: flex;
   flex-direction: column;
