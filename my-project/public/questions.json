@@ -1,4 +1,4 @@
-questions_full = [
+[
     {
         "question_number": 1,
         "question": "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil …",
@@ -163,7 +163,7 @@ questions_full = [
             "Arbeit im Ausland"
         ],
         "correct_answer": "Zwangsarbeit"
-    }
+    },
     {
         "question_number": 16,
         "question": "Wann ist die Meinungsfreiheit in Deutschland eingeschränkt?",
@@ -330,6 +330,6 @@ questions_full = [
         ],
         "correct_answer": "Pressezensur"
     }
-])
+]
 
 
