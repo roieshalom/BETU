@@ -33,8 +33,8 @@ body {
 
 /* White card container with fixed size */
 .container {
-  width: 90%;
   max-width: 400px;
+  width: 90%;
   height: 500px; /* Fixed height */
   padding: 20px;
   background: white;
@@ -45,24 +45,24 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden; /* Prevents content from making the card jump */
 }
 
-/* Flashcard content */
 .flashcard {
-  width: 100%;
-  height: 100%;
+  width: 90%;  /* Makes it responsive but consistent */
+  max-width: 400px;  /* Ensures it doesn’t grow beyond mobile-friendly size */
+  height: 500px;  /* Fixed height to prevent jumping */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Ensures text is spaced correctly */
   align-items: center;
   padding: 20px;
   border-radius: 10px;
   background: white;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Prevents text overflow */
 }
 
-/* Question styling */
 .question {
   font-size: 18px;
   font-weight: bold;
@@ -72,10 +72,17 @@ body {
   overflow-wrap: break-word;
   flex-grow: 1;
   display: flex;
-  align-items: center; /* Centers vertically */
+  align-items: center; /* Centers text vertically */
   justify-content: center;
   padding: 10px;
   max-width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
 }
 
 /* Ensures options fit properly */
@@ -124,15 +131,19 @@ body {
 
 .controls button {
   flex: 1;
-  min-width: 120px; /* Fixed button width */
+  width: 120px;
+  min-width: 120px;
+  max-width: 150px;
   padding: 10px 15px;
   border: none;
-  background: #3498db;
-  color: white;
+  background-color: #3498db !important; /* Forces blue color */
+  color: white !important; /* Forces white text */
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
+  text-align: center;
 }
+  
 
 .controls button:hover {
   background: #2980b9;
@@ -167,8 +178,11 @@ body {
   }
 
   .controls {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: center; /* Ensures even spacing */
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
     gap: 10px;
   }
 
