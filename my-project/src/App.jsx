@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; 
+import "./App.css";
 
 const App = () => {
     const [questions, setQuestions] = useState([]);
@@ -36,10 +36,15 @@ const App = () => {
         resetState();
         setCurrentIndex((prev) => (prev + 1) % questions.length);
     };
-    
+
     const prevQuestion = () => {
         resetState();
         setCurrentIndex((prev) => (prev - 1 + questions.length) % questions.length);
+    };
+
+    const randomQuestion = () => {
+        resetState();
+        setCurrentIndex(Math.floor(Math.random() * questions.length));
     };
 
     const resetState = () => {
@@ -50,10 +55,13 @@ const App = () => {
     return (
         <div className="wrapper">
             <h1 className="page-title">Leben in Deutschland Fragenkatalog</h1>
-            
+
             <div className="flashcard-container">
                 <div className="flashcard">
+                    {/* Display the question */}
                     <div className="question">{currentQuestion.question}</div>
+
+                    {/* Display answer options */}
                     <div className="options">
                         {currentQuestion.options.map((option, index) => (
                             <button
@@ -74,18 +82,21 @@ const App = () => {
                             </button>
                         ))}
                     </div>
+
+                    {/* Display question number inside the card (bottom-right) */}
+                    <div className="question-number">#{currentIndex + 1}</div>
                 </div>
             </div>
-            
+
+            {/* Navigation buttons with a larger gap for random */}
             <div className="controls">
                 <button onClick={prevQuestion}>⬅ Zurück</button>
+                <button className="random-button" onClick={randomQuestion}>Zufällig</button>
                 <button onClick={nextQuestion}>Weiter ➡</button>
             </div>
 
-            <div className="question-info">
-                <div className="question-number">#{currentIndex + 1}</div>
-                <div className="question-count">{questions.length} insgesamt</div>
-            </div>
+            {/* Total questions count (Below the buttons) */}
+            <div className="total-questions">Fragen insgesamt: {questions.length}</div>
         </div>
     );
 };
